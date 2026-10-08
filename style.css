@@ -49,7 +49,21 @@ nav ul li a {
     width: 80%;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 2rem auto;
+}
+
+.container #profile img {
+    width: 200px;
+}
+
+.container #profile {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.container #profile h3 {
+    margin: 1rem 0;
 }
 
 .container #skills {
@@ -66,11 +80,18 @@ nav ul li a {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    text-align: justify;
 }
 
 .container #certificates ul li{
     margin-block: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1REM;
+}
+
+.container #certificates ul li p {
+    text-align: justify;
 }
 
 .container #education ul li{

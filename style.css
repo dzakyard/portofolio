@@ -40,6 +40,12 @@ nav ul li {
     margin: 1rem;
 }
 
+nav ul li button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
 nav ul li a {
     text-decoration: none;
     color: #f4f4f4;

@@ -46,6 +46,10 @@ nav ul li button {
     cursor: pointer;
 }
 
+.dark-mode {
+    background-color: #333;
+}
+
 nav ul li a {
     text-decoration: none;
     color: #f4f4f4;

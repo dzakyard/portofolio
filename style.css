@@ -14,7 +14,7 @@ h1 {
     font-size: 40px;
 }
 
-h2 {
+article h2 {
     font-size: 20px;
     padding-bottom: 1rem;
     border-bottom: 2px solid rgba(51, 51, 51, 0.2);
@@ -72,6 +72,16 @@ nav ul li a {
     margin: 2rem auto;
 }
 
+.container #profile #profile-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container #profile #profile-card #profile-info p {
+    padding-bottom: 1rem;
+}
+
 .container #profile img {
     width: 200px;
 }
@@ -84,6 +94,27 @@ nav ul li a {
 
 .container #profile h3 {
     margin: 1rem 0;
+}
+
+.container #profile #counter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container #profile #counter button {
+    padding-inline: 1rem;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #f4f4f4;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container #profile #counter-display {
+    width: 50%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
 }
 
 .container #skills {

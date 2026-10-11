@@ -13,6 +13,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // Follower Counter Interaction
+    const followBtn = document.getElementById("follow-btn");
+    const counterDisplay = document.getElementById("counter-display");
+    let count = 0;
+
+    if (followBtn && counterDisplay) {
+        followBtn.addEventListener("click", function() {
+            count++;
+            counterDisplay.textContent = count;
+            if (followBtn.textContent === "Follow") {
+                followBtn.textContent = "Following";
+            } else {
+                followBtn.textContent = "Follow";
+            };
+        });
+    }
+
+
     // Terminal Modal Logic (Real SSH / Jumpbox via Tailscale)
     const openTerminalBtn = document.getElementById("open-terminal-btn");
     const closeTerminalBtn = document.getElementById("close-terminal-btn");

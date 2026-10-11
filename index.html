@@ -90,14 +90,15 @@
             <ul>
                 <li>
                     <div class="project-preview">
-                        <img src="img/pasfoto.png" alt="TanamKita preview" class="preview-img">
+                        <img src="img/tanam-kita.png" alt="TanamKita preview" class="preview-img">
                     </div>
                     <h3>TanamKita - Team Project</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ratione odit nisi omnis animi aliquam officiis quaerat rem reiciendis quibusdam enim, consequatur similique voluptas quis modi reprehenderit, qui atque quas.</p>
                 </li>
                 <li>
                     <div class="project-preview">
-                        <div class="preview-placeholder">Preview Not Available</div>
+                        <div class="preview-placeholder">
+                        </div>
                     </div>
                     <h3>Submission Tracker</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ratione odit nisi omnis animi aliquam officiis quaerat rem reiciendis quibusdam enim, consequatur similique voluptas quis modi reprehenderit, qui atque quas.</p>
@@ -105,15 +106,29 @@
             </ul>
             <ul>
                 <li>
-                    <div class="project-preview">
-                        <div class="preview-placeholder">Preview Not Available</div>
+                    <div class="project-preview terminal-preview-card">
+                        <div class="terminal-header">
+                            <span class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </span>
+                            <span class="terminal-title">jumpbox.lab ~ tailscale</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="term-line"><span class="term-prompt">dzaky@jumpbox:~$</span> tailscale status</p>
+                            <p class="term-output">100.x.y.z  jumpbox-lab  linux  -</p>
+                            <p class="term-line"><span class="term-prompt">dzaky@jumpbox:~$</span> ./launch-lab.sh</p>
+                            <p class="term-output term-success">[✓] Lab network ready. Port 7681 listening.</p>
+                        </div>
+                        <button type="button" class="btn-launch-terminal" id="open-terminal-btn">Launch Live Terminal</button>
                     </div>
                     <h3>Web Security Labs</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ratione odit nisi omnis animi aliquam officiis quaerat rem reiciendis quibusdam enim, consequatur similique voluptas quis modi reprehenderit, qui atque quas.</p>
                 </li>
                 <li>
                     <div class="project-preview">
-                        <div class="preview-placeholder">Preview Not Available</div>
+                        <img src="img/study-flow.png" alt="Studyflow preview" class="preview-img">
                     </div>
                     <h3>Studyflow</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ratione odit nisi omnis animi aliquam officiis quaerat rem reiciendis quibusdam enim, consequatur similique voluptas quis modi reprehenderit, qui atque quas.</p>
@@ -121,6 +136,32 @@
             </ul>
         </article>
     </main>
+
+    <!-- Terminal Modal for Real SSH Jumpbox (Tailscale / ttyd / Wetty) -->
+    <div id="terminal-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </span>
+                    <span class="modal-title">Live Terminal: Jumpbox Lab (Tailscale)</span>
+                </div>
+                <div class="modal-actions">
+                    <a id="terminal-external-link" href="http://100.100.100.100:7681" target="_blank" rel="noopener noreferrer" title="Buka di tab baru">↗ Open in new tab</a>
+                    <button type="button" id="close-terminal-btn" class="modal-close" aria-label="Tutup Terminal">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe id="terminal-frame" src="" data-src="http://100.100.100.100:7681" title="Jumpbox SSH Terminal"></iframe>
+                <div class="modal-fallback-note">
+                    <p>🔒 <strong>Catatan Koneksi:</strong> Memerlukan akses ke Tailnet Anda. Pastikan Tailscale terhubung jika mengakses IP internal (<code>100.x.y.z</code> / MagicDNS).</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <footer>

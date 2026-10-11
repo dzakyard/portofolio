@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     button.addEventListener("click", function() {
         body.classList.toggle("dark-mode");
         
-        if (button_img.getAttribute("src") === "img/moon.png") {
-            button_img.setAttribute("src", "img/sun.png");
+        if (button_img.getAttribute("src") === "img/moon.svg") {
+            button_img.setAttribute("src", "img/sun.svg");
         } else {
-            button_img.setAttribute("src", "img/moon.png");
+            button_img.setAttribute("src", "img/moon.svg");
         }
     })
 })

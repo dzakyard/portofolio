@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
             counterDisplay.textContent = count;
             if (followBtn.textContent === "Follow") {
                 followBtn.textContent = "Following";
+                followBtn.style.backgroundColor = "#27c93f";
             } else {
                 followBtn.textContent = "Follow";
+                followBtn.style.backgroundColor = "#333"
             };
         });
     }

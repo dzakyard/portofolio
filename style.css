@@ -401,12 +401,78 @@ nav ul li button#toggle-mode:hover {
 }
 
 /* ==========================================================
-   Education Section
+   Education Section (Modern Timeline)
    ========================================================== */
-.container #education ul li {
-    margin-block: 0.5rem;
-    font-size: 1rem;
-    font-weight: 500;
+.container #education .education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.container #education .education-timeline li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.1rem 1.35rem;
+    gap: 1rem;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container #education .education-timeline li:hover {
+    transform: translateX(4px);
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow-hover);
+}
+
+.container #education .education-timeline li::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    border: 3px solid var(--bg-card);
+    box-shadow: 0 0 0 2px var(--border-color);
+}
+
+.container #education .education-timeline .edu-role {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.container #education .education-timeline .edu-school {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.container #education .education-timeline .edu-badge {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    background: var(--border-color);
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.container #education .education-timeline .edu-badge.active {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-green);
+    border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 /* ==========================================================
@@ -782,6 +848,12 @@ footer {
 
     .container article {
         padding: 1.5rem;
+    }
+
+    .container #education .education-timeline li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
 
     .footer-content {

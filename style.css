@@ -172,6 +172,7 @@ nav ul li a {
 }
 
 .container #projects .project-preview {
+    position: relative;
     width: 100%;
     height: 180px;
     border-radius: 0.5rem;
@@ -181,6 +182,37 @@ nav ul li a {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-preview-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-preview-link:hover .project-preview {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.project-preview-link .preview-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    opacity: 0.85;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.project-preview-link:hover .preview-badge {
+    opacity: 1;
+    background: #000;
 }
 
 .container #projects .project-preview .preview-img {
@@ -204,6 +236,18 @@ nav ul li a {
 
 .dark-mode .container #projects .project-preview .preview-placeholder {
     color: #aaa;
+}
+
+.dark-mode .project-preview-link:hover .project-preview {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .project-preview-link .preview-badge {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .project-preview-link:hover .preview-badge {
+    background: rgba(255, 255, 255, 0.35);
 }
 
 /* ==========================================================

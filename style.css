@@ -97,8 +97,8 @@ nav ul li a {
 }
 
 .container #about-me p {
+    margin-block: 1rem;
     line-height: 1.6;
-    margin-bottom: 1.25rem;
 }
 
 .container #about-me .social-links {

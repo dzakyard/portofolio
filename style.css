@@ -96,6 +96,52 @@ nav ul li a {
     margin: 1rem 0;
 }
 
+.container #about-me p {
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.container #about-me .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+    color: #222;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.social-btn:hover {
+    background-color: #e2e2e2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .social-btn {
+    background-color: #2b2b2b;
+    color: #f4f4f4;
+    border-color: #444;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .social-btn:hover {
+    background-color: #383838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
 .container #profile #counter {
     display: flex;
     justify-content: space-between;

@@ -518,8 +518,45 @@ nav ul li a {
 }
 
 footer {
-    bottom: 0;
-    text-align: center;
+    width: 100%;
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+.dark-mode footer {
+    background-color: #1a1a1a;
+    border-top: 1px solid #2a2a2a;
 }
 
 @media (max-width: 768px) {
@@ -543,8 +580,17 @@ footer {
         flex-direction: column;
     }
 
-    .container #certificates ul {
+    .footer-content {
+        width: 95%;
         flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
 

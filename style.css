@@ -60,6 +60,10 @@ nav ul li button {
     border-bottom: 2px solid rgba(244, 244, 244, 0.2);
 }
 
+.dark-mode .container #profile #counter button:focus {
+    outline: 2px solid #f4f4f4;
+}
+
 nav ul li a {
     text-decoration: none;
     color: #f4f4f4;
@@ -76,6 +80,26 @@ nav ul li a {
     text-align: center;
     display: flex;
     flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.container #profile #profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.container #profile #counter button {
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.container #profile #counter button:hover {
+    background-color: #27c93f;
+    transform: translateY(-2px);
+}
+
+.container #profile #counter button:focus {
+    outline: 2px solid #333;
+    outline-offset: 2px;
 }
 
 .container #profile #profile-card #profile-info p {
@@ -94,6 +118,52 @@ nav ul li a {
 
 .container #profile h3 {
     margin: 1rem 0;
+}
+
+.container #about-me p {
+    margin-block: 1rem;
+    line-height: 1.6;
+}
+
+.container #about-me .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+    color: #222;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.social-btn:hover {
+    background-color: #e2e2e2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .social-btn {
+    background-color: #2b2b2b;
+    color: #f4f4f4;
+    border-color: #444;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .social-btn:hover {
+    background-color: #383838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .container #profile #counter {
@@ -172,6 +242,7 @@ nav ul li a {
 }
 
 .container #projects .project-preview {
+    position: relative;
     width: 100%;
     height: 180px;
     border-radius: 0.5rem;
@@ -181,6 +252,37 @@ nav ul li a {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-preview-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-preview-link:hover .project-preview {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.project-preview-link .preview-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    opacity: 0.85;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.project-preview-link:hover .preview-badge {
+    opacity: 1;
+    background: #000;
 }
 
 .container #projects .project-preview .preview-img {
@@ -206,7 +308,248 @@ nav ul li a {
     color: #aaa;
 }
 
+.dark-mode .project-preview-link:hover .project-preview {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .project-preview-link .preview-badge {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .project-preview-link:hover .preview-badge {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* ==========================================================
+   Terminal Preview & Modal Styles (Jumpbox Lab Tailscale)
+   ========================================================== */
+.terminal-preview-card {
+    position: relative;
+    background-color: #121212 !important;
+    border: 1px solid #2a2a2a !important;
+    flex-direction: column;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    padding: 0.6rem 0.8rem;
+    font-family: monospace;
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #282828;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.terminal-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.terminal-title {
+    font-size: 11px;
+    color: #888;
+}
+
+.terminal-body {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #ddd;
+    text-align: left;
+    margin-top: 0.4rem;
+    overflow: hidden;
+}
+
+.terminal-body .term-prompt {
+    color: #27c93f;
+    font-weight: bold;
+}
+
+.terminal-body .term-output {
+    color: #888;
+}
+
+.terminal-body .term-success {
+    color: #38bdf8;
+}
+
+.btn-launch-terminal {
+    background: #27c93f;
+    color: #0b150d;
+    border: none;
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: 0.3rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-launch-terminal:hover {
+    background: #34e04f;
+    transform: translateY(-1px);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    background: #181818;
+    color: #f4f4f4;
+    width: 90%;
+    max-width: 920px;
+    height: 80vh;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #333;
+}
+
+.modal-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.modal-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #eee;
+}
+
+.modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-actions a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.modal-actions a:hover {
+    text-decoration: underline;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+.modal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #0d0d0d;
+}
+
+.modal-body iframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: #000;
+}
+
+.modal-fallback-note {
+    background: #141414;
+    border-top: 1px solid #282828;
+    padding: 0.5rem 1rem;
+    font-size: 11px;
+    color: #999;
+}
+
+.modal-fallback-note code {
+    background: #242424;
+    color: #38bdf8;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
 footer {
     bottom: 0;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .container #profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: justify;
+    }
+
+    .container #certificates ul,
+    .container #projects ul {
+        flex-direction: column;
+    }
+
+    .container #certificates ul {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 920px) {
+    .container #certificates ul {
+        flex-direction: column;
+    }
 }

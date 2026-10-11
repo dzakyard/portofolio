@@ -20,15 +20,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (followBtn && counterDisplay) {
         followBtn.addEventListener("click", function() {
-            count++;
-            counterDisplay.textContent = count;
-            if (followBtn.textContent === "Follow") {
+            const isFollowing = followBtn.classList.toggle("follow-active");
+            if (isFollowing) {
+                count++;
                 followBtn.textContent = "Following";
-                followBtn.style.backgroundColor = "#27c93f";
             } else {
+                count--;
                 followBtn.textContent = "Follow";
-                followBtn.style.backgroundColor = "#333"
-            };
+            }
+            counterDisplay.textContent = count;
         });
     }
 

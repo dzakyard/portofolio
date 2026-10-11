@@ -1,33 +1,76 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Dark Mode Toggle with Web Storage (localStorage)
     const button = document.querySelector("#toggle-mode");
-    const button_img = button.querySelector("img");
+    const button_img = button ? button.querySelector("img") : null;
     const body = document.querySelector("body");
 
-    button.addEventListener("click", function() {
-        body.classList.toggle("dark-mode");
-        
-        if (button_img.getAttribute("src") === "img/moon.svg") {
-            button_img.setAttribute("src", "img/sun.svg");
+    function applyTheme(isDark) {
+        if (isDark) {
+            body.classList.add("dark-mode");
+            if (button_img) {
+                button_img.setAttribute("src", "img/sun.svg");
+                button_img.setAttribute("alt", "day-mode");
+            }
         } else {
-            button_img.setAttribute("src", "img/moon.svg");
+            body.classList.remove("dark-mode");
+            if (button_img) {
+                button_img.setAttribute("src", "img/moon.svg");
+                button_img.setAttribute("alt", "night-mode");
+            }
         }
-    });
+    }
 
-    // Follower Counter Interaction
+    // Restore saved theme on page load
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        applyTheme(true);
+    }
+
+    if (button) {
+        button.addEventListener("click", function() {
+            const isDark = !body.classList.contains("dark-mode");
+            applyTheme(isDark);
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    }
+
+    // Follower Counter Interaction with Web Storage (localStorage)
     const followBtn = document.getElementById("follow-btn");
     const counterDisplay = document.getElementById("counter-display");
-    let count = 0;
 
     if (followBtn && counterDisplay) {
+        // Load persisted state from localStorage
+        let savedCount = parseInt(localStorage.getItem("followCount"), 10);
+        let count = isNaN(savedCount) ? 0 : savedCount;
+        let isFollowing = localStorage.getItem("isFollowing") === "true";
+
+        // Restore UI according to saved state
+        if (isFollowing) {
+            followBtn.classList.add("follow-active");
+            followBtn.textContent = "Following";
+        } else {
+            followBtn.classList.remove("follow-active");
+            followBtn.textContent = "Follow";
+        }
+        counterDisplay.textContent = count;
+
         followBtn.addEventListener("click", function() {
-            const isFollowing = followBtn.classList.toggle("follow-active");
+            isFollowing = !isFollowing;
+
             if (isFollowing) {
                 count++;
+                followBtn.classList.add("follow-active");
                 followBtn.textContent = "Following";
             } else {
-                count--;
+                count = Math.max(0, count - 1);
+                followBtn.classList.remove("follow-active");
                 followBtn.textContent = "Follow";
             }
+
+            // Save updated state to localStorage
+            localStorage.setItem("followCount", count);
+            localStorage.setItem("isFollowing", isFollowing);
+
             counterDisplay.textContent = count;
         });
     }
